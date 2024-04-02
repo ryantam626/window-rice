@@ -1,8 +1,7 @@
-
 ;; Basic system config
 (defcfg
   input  (low-level-hook)
-  output (send-event-sink 201 36)
+  output (send-event-sink 201 33)
 
   ;; Won't define every key, so fallthrough is necessary
   fallthrough true
