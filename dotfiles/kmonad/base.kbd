@@ -6,8 +6,8 @@
   ;; Won't define every key, so fallthrough is necessary
   fallthrough true
 
-  ;; Disable any command-execution in KMonad for now
-  allow-cmd false
+  ;; We must enable command-execution in KMonad to make use of komorebi command bindings
+  allow-cmd true
 )
 
 
@@ -24,7 +24,7 @@
   _    _    _    _    _    _    y    u    i    _    _    [    ]    _
   @nav _    _    _    _    _    h    j    k    l    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _              _              _    _    _    _
+  _    @kom _              _              _    _    _    _
 )
 
 (deflayer navigation
@@ -43,4 +43,51 @@
   _    _    _              _              _    _    _    _
 )
 
+
+(deflayer komorebic
+  _    @k_1 @k_2 @k_3 @k_4 @k_5 _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    @k_u @k_i _    _    _    _    _
+  _    _    _    _    @k_f _    _    @k_j @k_k _    _    _    @k_enter
+  @kos _    _    _    _    _    _    @k_m _    _    _    _
+  _    _    _              _              _    _    _    _
+)
+
+(deflayer komorebic_shifted
+  _    @k_! @k_@ @k_# @k_$ @k_% _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    @k_U @k_I _    _    _    _    _
+  _    _    _    _    _    _    _    @k_J @k_K _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _              _              _    _    _    _
+)
+
+
+(defalias
+  k_j (cmd-button "komorebic.exe cycle-focus next") ;; select next window
+  k_J (cmd-button "komorebic.exe cycle-move next") ;; move to next window
+  k_k (cmd-button "komorebic.exe cycle-focus previous") ;; select previous window
+  k_K (cmd-button "komorebic.exe cycle-move previous") ;; move to previous window
+  k_u (cmd-button "komorebic.exe focus-monitor 0") ;; focus left monitor
+  k_U (cmd-button "komorebic.exe move-to-monitor 0") ;; move to left monitor
+  k_i (cmd-button "komorebic.exe focus-monitor 1") ;; focus right monitor
+  k_I (cmd-button "komorebic.exe move-to-monitor 1") ;; move to right monitor
+  k_1 (cmd-button "komorebic.exe focus-workspace 0") ;; focus workspace 0
+  k_2 (cmd-button "komorebic.exe focus-workspace 1") ;; focus workspace 1
+  k_3 (cmd-button "komorebic.exe focus-workspace 2") ;; focus workspace 2
+  k_4 (cmd-button "komorebic.exe focus-workspace 3") ;; focus workspace 3
+  k_5 (cmd-button "komorebic.exe focus-workspace 4") ;; focus workspace 4
+  k_! (cmd-button "komorebic.exe send-to-workspace 0") ;; send window to  workspace 0
+  k_@ (cmd-button "komorebic.exe send-to-workspace 1") ;; send window to  workspace 1
+  k_# (cmd-button "komorebic.exe send-to-workspace 2") ;; send window to  workspace 2
+  k_$ (cmd-button "komorebic.exe send-to-workspace 3") ;; send window to  workspace 3
+  k_% (cmd-button "komorebic.exe send-to-workspace 4") ;; send window to  workspace 4
+  k_f (cmd-button "komorebic.exe toggle-float") ;; toggling float mode
+  k_m (cmd-button "komorebic.exe toggle-monocle") ;; toggling monocle mode (maximise single ish)
+  k_enter (cmd-button "komorebic.exe promote") ;; promote window
+
+  ;; TODO: Add resize left right skip top bottom
+)
+
+
+(defalias kom (tap-hold-next 500 lmet (layer-toggle komorebic)))
+(defalias kos (layer-toggle komorebic_shifted))
 (defalias nav (tap-hold-next 500 esc (around (layer-toggle fkeys) (layer-toggle navigation))))
