@@ -86,7 +86,7 @@ git clone https://github.com/ryantam626/window-rice.git
 
 For grabbing dotfiles later.
 
-Can't work out how to create a symlink that works without admin rights.
+Can't work out how to create a symlink that works without admin rights, so we are duplicating in Windows.. 
 
 In Powershell,
 
@@ -108,9 +108,18 @@ Using `cmd.exe` is necessary for some reason, otherwise if we just do `kmonad.ex
 
 Tiling Window Management for Windows.
 
+```powershell
+scoop bucket add extras
+scoop install komorebi
+```
 
+### Copy config to home dir
 
+CBA to figure out `KOMOREBI_CONFIG_HOME` - I am not going to put more stuff in Windows other than bare minimal anyway.
 
+```powershell
+cp ~\window-rice\dotfiles\komorebi\komorebi.json ~\komorebi.json
+```
 
 ## TODO
 - Vim system clipboard
