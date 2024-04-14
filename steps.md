@@ -12,12 +12,14 @@ wsl --install
 
 Requires manual reply.
 
-Just for convience, can do without oh-my-zsh if there is push back.
+Installing `oh-my-zsh` just for convience, can do without it if there is push back.
 
 In WSL,
 
 ```bash
+# zsh
 sudo apt install zsh -y
+# omz
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
@@ -39,9 +41,8 @@ sudo ln -s /home/ryan/apps/nvim-linux64/bin/nvim /usr/local/bin/nvim
 ## Install kmonad
 
 I require this for keyboard remapping that I am familiar with.
-Alternative might be AutoHotkey which I am not 100% sure will fit my need.
 
-(TODO: Confirm this can act as komorebi's invoker so one less software needs to be vetted)
+Alternative might be [kanata](https://github.com/jtroo/kanata), in fact it might be better since it can intercept Window+L according to its author. (TODO: test this)
 
 Unfortunately have to build ourselves for version 0.4.2+ which contains a fix for key repeat in Windows. 
 
@@ -95,13 +96,21 @@ git clone https://github.com/ryantam626/window-rice.git
 
 ## Create kmonad shortcut
 
-Just make a shortcut entry manually with the following command.
+Just make a shortcut entry on desktop manually with the following command.
 
 ```powershell
 C:\Windows\System32\cmd.exe /k C:\Users\ryant\AppData\Roaming\local\bin\kmonad.exe C:\Users\ryant\window-rice\dotfiles\kmonad\base.kbd
 ```
 
 Using `cmd.exe` is necessary for some reason, otherwise if we just do `kmonad.exe <config>`, it will somehow fail due to permission issues (unless we run as admin).
+
+## [Komorebi](https://github.com/LGUG2Z/komorebi)
+
+Tiling Window Management for Windows.
+
+
+
+
 
 ## TODO
 - Vim system clipboard
