@@ -120,6 +120,3 @@ CBA to figure out `KOMOREBI_CONFIG_HOME` - I am not going to put more stuff in W
 ```powershell
 cp ~\window-rice\dotfiles\komorebi\komorebi.json ~\komorebi.json
 ```
-
-## TODO
-- Vim system clipboard
