@@ -10,4 +10,27 @@ then reboot.
 # Compile kanata ourselves
 
 ## Getting rust
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+Download [rustup](https://rustup.rs).
+
+Need to install Visual Studio as well for some build tooling in Windows.
+
+## Download git for windows
+
+[official site](https://git-scm.com/download/win) - standalone installer.
+
+
+## Clone repo
+
+```shell
+git clone https://github.com/jtroo/kanata.git
+```
+
+## Compile and install
+
+```shell
+cd kanata
+cargo build --release --features cmd
+cargo install --features cmd --path .
+```
+
