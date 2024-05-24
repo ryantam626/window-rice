@@ -6,8 +6,7 @@
   ;; Won't define every key, so fallthrough is necessary
   fallthrough true
 
-  ;; We must enable command-execution in KMonad to make use of komorebi command bindings
-  allow-cmd true
+  allow-cmd false
 )
 
 
